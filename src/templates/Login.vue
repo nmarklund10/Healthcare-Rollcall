@@ -22,7 +22,7 @@
       </b-col>
       <b-col cols="12" md="6">
         <b-card title="Login">
-          <form class="login-container" v-on:submit.prevent="login">
+          <form class="login-container" v-on:submit.prevent="login" data-test="login">
             <label>
               <b-form-input
                 required
@@ -30,6 +30,7 @@
                 name="email"
                 v-model="input.email"
                 placeholder="Email"
+                data-test="email"
               />
             </label>
             <label>
@@ -39,6 +40,7 @@
                 name="password"
                 v-model="input.password"
                 placeholder="Password"
+                data-test="password"
               />
             </label>
             <div>
@@ -51,6 +53,7 @@
               fade
               :variant="this.type"
               @dismiss-login-count-down="this.countDownChanged"
+              data-test="alert"
             >{{this.login_alert}}</b-alert>
           </form>
         </b-card>
@@ -143,8 +146,8 @@ export default {
     },
     showAlert(msg, type, alertType = null) {
       if (alertType !== null) {
-      this.reset_alert = msg
-      this.dismissCountDown = this.dismissSecs
+        this.reset_alert = msg
+        this.dismissCountDown = this.dismissSecs
       } else {
         this.login_alert = msg
       this.dismissLoginCountDown = this.dismissSecs
