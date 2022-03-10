@@ -68,8 +68,10 @@ export default {
     const navBar = this.$root.getNavBarStatus();
     const user = this.$root.auth_token
         ? this.$jwt.decode(this.$root.auth_token).email
-        : false;
-    const role = this.$jwt.decode(this.$root.auth_token).type || '';
+        : false
+    const role = this.$root.auth_token
+        ? this.$jwt.decode(this.$root.auth_token).type
+        : ''
     return {
       user,
       navBar,
