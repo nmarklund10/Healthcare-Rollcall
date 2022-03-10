@@ -22,7 +22,7 @@
       </b-col>
       <b-col cols="12" md="6">
         <b-card title="Login">
-          <form class="login-container" v-on:submit.prevent="login" data-test="login">
+          <form class="login-container" v-on:submit.prevent="login">
             <label>
               <b-form-input
                 required
@@ -30,7 +30,7 @@
                 name="email"
                 v-model="input.email"
                 placeholder="Email"
-                data-test="email"
+                data-cy="email"
               />
             </label>
             <label>
@@ -40,20 +40,20 @@
                 name="password"
                 v-model="input.password"
                 placeholder="Password"
-                data-test="password"
+                data-cy="password"
               />
             </label>
             <div>
               <a v-b-modal.reset-pass href="#">Forgot/Reset Password</a>
             </div>
-            <b-button type="submit" variant="primary">Login</b-button>
+            <b-button type="submit" variant="primary" data-cy="login">Login</b-button>
             <b-alert
               :show="this.dismissLoginCountDown"
               dismissible
               fade
               :variant="this.type"
               @dismiss-login-count-down="this.countDownChanged"
-              data-test="alert"
+              data-cy="alert"
             >{{this.login_alert}}</b-alert>
           </form>
         </b-card>
